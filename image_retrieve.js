@@ -58,13 +58,19 @@ function get_headbox(width, height){
         data: JSON.stringify(request),
         processData: false,
         success: function (response) {
-            if(typeof response.responses == "undefined"){
+            console.log(response);
+            var headbox;
+            
+            //throws error if there is no face to be found
+            try{
+                headbox = response.responses[0].faceAnnotations[0].boundingPoly.vertices;
+            }catch(error){
                 console.log("no faces found here");
                 pos = {x: 0.5, y: 0.5}
                 update_display();
                 return;   
             }
-            var headbox = response.responses[0].faceAnnotations[0].boundingPoly.vertices;
+                
             text_location(headbox, width, height);
         },
         error: function(error){
