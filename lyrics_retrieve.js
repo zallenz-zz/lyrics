@@ -1,3 +1,5 @@
+var refrain = null;
+
 //Only support english genres at this stage
 var genres = {
     "Country": 6,
@@ -14,7 +16,7 @@ var genres = {
 };
 
 
-random_song("Pop");
+//random_song("Pop");
 
 function random_song(genre){
     console.log(genres[genre]);
@@ -40,7 +42,6 @@ function random_song(genre){
             get_lyrics(track_id);        
         }
     });
-    console.log("done");
 }
 
 function get_lyrics(track_id){
@@ -95,12 +96,10 @@ function find_refrains(lyrics){
     console.log(max + " " + max_index);
     console.log(longest_length + " " + longest_index);
     
-    var refrain;
+    //update global variable
     if(max == 1){
         refrain = lyrics[longest_index];
     }else{
         refrain = lyrics[max_index]; 
     }
-    
-    print_quote(refrain);
 }
