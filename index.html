@@ -12,29 +12,20 @@
     <script src='image_retrieve.js'></script>
     <script src='page_control.js'></script>
 </head>
-<body>        
-        
+<body>            
     <div class="site-wrapper">
-
         <div class="site-wrapper-inner">
-
             <div class="cover-container">
-
                 <div class="masthead clearfix">
                     <div class="inner">
                         <h4 class="masthead-brand">Real Quotes</h4>
                         <nav class="nav nav-masthead">
-<!--
-                            <a class="nav-link active" href="frontpage.html">Home</a>
-                            <a class="nav-link" href="#">Choose</a>
--->
-                            <input class="btn btn-info" type="button" data-toggle="modal" data-target="#infoModal" value="What is this?">
-                            <input class="btn btn-secondary" type="button" data-toggle="modal" data-target="#inputModal" value="Make your own!">
+                            <input class="btn btn-info modal_btn" type="button" data-toggle="modal" data-target="#infoModal" value="What is this?">
+                            <input class="btn btn-secondary modal_btn" type="button" data-toggle="modal" data-target="#inputModal" value="Make your own!">
                         </nav>
                     </div>
                 </div>
                 <div class="inner cover">
-                    
                     <img src="gandhi.jpeg" id = "myimage" img style='height: 100%; width: 100%; object-fit: contain'/>
                     <p id="quote">The world is the problem; the atomic bomb is the answer</p>
                 </div>
@@ -50,61 +41,61 @@
     
     
     <div id="inputModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+        <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-          <form>
-            <div class="form-group row">
-    <select class="form-control" id="genre_select" required>
-        <option value="" class="text-muted" disabled selected>Lyrics Genre</option>
-      <option value="Country">Country</option>
-      <option value="Electronic">Electronic</option>
-      <option value="Holiday">Holiday</option>
-      <option value="Opera">Opera</option>
-      <option value="Pop">Pop</option>
-      <option value="Soul">Soul</option>
-      <option value="Rap">Rap</option>
-      <option value="Alternative">Alternative</option>
-      <option value="Rock">Rock</option>
-      <option value="Christian">Christian</option>
-    </select>
-  </div>
-  <div class="row">
-    <input class="form-control" type="text" placeholder="Background Person" id="person" required>
-  </div>
-              
-          </form>
-      </div>
-      <div class="modal-footer"><p class="warn">All fields must be filled</p>
-        <button type="submit" id="submit" class="btn btn-default">Submit</button>
-      </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group row">
+                    <select class="form-control" id="genre_select" required>
+                        <option value="" class="text-muted" disabled selected>Lyrics Genre</option>
+                        <option value="Country">Country</option>
+                        <option value="Electronic">Electronic</option>
+                        <option value="Holiday">Holiday</option>
+                        <option value="Opera">Opera</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Soul">Soul</option>
+                        <option value="Rap">Rap</option>
+                        <option value="Alternative">Alternative</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Christian">Christian</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <input class="form-control" type="text" placeholder="Background Person" id="person" required>
+                </div>  
+            </form>
+        </div>
+        <div class="modal-footer"><p class="warn">All fields must be filled</p>
+            <button type="submit" id="submit" class="btn btn-default">Submit</button>
+        </div>
+        </div>
+        </div>
     </div>
-
-  </div>
-</div>
+    
+    
     
     <div id="infoModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
             <h3>Totally Real Quotes</h3>
             <p>Generate <em>totally genuine</em> quote pictures from anything to anyone with semi-random song lyrics!</p>
-            <p>Great for making posters, citing school papers, aquiring fake news, and more!</p>
+            <p>Great for making posters, citing for school papers, aquiring fake news, and more!</p>
             <p>Harmless fun for the whole family!</p>
-      </div>
+        </div>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
