@@ -1,55 +1,92 @@
 <!DOCTYPE html>
 <html>
-    <script src='script.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <title>Lyrics</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-        <link href="front.css" rel="stylesheet">
-    <head>
-        <title>Lyrics</title>
-    </head>
-    <body>        
+    <link href="front.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <script src='lyrics_retrieve.js'></script>
+    <script src='image_retrieve.js'></script>
+    <script src='page_control.js'></script>
+</head>
+<body>        
         
-            <div class="site-wrapper">
+    <div class="site-wrapper">
 
-      <div class="site-wrapper-inner">
+        <div class="site-wrapper-inner">
 
-        <div class="cover-container">
+            <div class="cover-container">
 
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h4 class="masthead-brand">Real Quotes</h4>
-                
-              <nav class="nav nav-masthead">
-                
-                <a class="nav-link active" href="frontpage.html">Home</a>
-                <a class="nav-link" href="#">Choose</a>
-              </nav>
-                
-            </div>
-              
-          </div>
-          <div class="inner cover">
-                <div class="image">
-                    <img src="gandhi.jpeg" id = "myimage" img style='height: 100%; width: 100%; object-fit: contain'/>
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h4 class="masthead-brand">Real Quotes</h4>
+                        <nav class="nav nav-masthead">
+<!--
+                            <a class="nav-link active" href="frontpage.html">Home</a>
+                            <a class="nav-link" href="#">Choose</a>
+-->
+                            <input class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#inputModal" value="Make your own!">
+                        </nav>
+                    </div>
                 </div>
-            </p>
-          </div>
+                <div class="inner cover">
+                    
+                    <img src="gandhi.jpeg" id = "myimage" img style='height: 100%; width: 100%; object-fit: contain'/>
+                    <p id="quote">The world is the problem; the atomic bomb is the answer</p>
+                </div>
 
-          <div class="mastfoot">
-            <div class="inner">
-                <h5 class="cover-heading">Real things people have actually said</h5>
+                <div class="mastfoot">
+                    <div class="inner">
+                        <h5 class="cover-heading">They are totally legit - Tony Monaco</h5>
+                    </div>
+                </div>
             </div>
-          </div>
-
         </div>
-
-      </div>
-
     </div>
-        
-        
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    </body>
-</html>
+    
+    
+    <div id="inputModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+          <form>
+            <div class="form-group row">
+    <select class="form-control" id="genre_select" required>
+        <option value="" class="text-muted" disabled selected>Lyrics Genre</option>
+      <option value="Country">Country</option>
+      <option value="Electronic">Electronic</option>
+      <option value="Holiday">Holiday</option>
+      <option value="Opera">Opera</option>
+      <option value="Pop">Pop</option>
+      <option value="Soul">Soul</option>
+      <option value="Rap">Rap</option>
+      <option value="Alternative">Alternative</option>
+      <option value="Rock">Rock</option>
+      <option value="Christian">Christian</option>
+    </select>
+  </div>
+  <div class="row">
+    <input class="form-control" type="text" placeholder="Background Person" id="person" required>
+  </div>
+              
+          </form>
+      </div>
+      <div class="modal-footer"><p class="warn">All fields must be filled</p>
+        <button type="submit" id="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
 </html>

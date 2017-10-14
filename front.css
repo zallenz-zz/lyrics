@@ -157,3 +157,12 @@ body {
     width: 42rem;
   }
 }
+
+
+
+
+.warn {
+    color: firebrick;
+    text-align: left;
+    text-shadow: none;
+}

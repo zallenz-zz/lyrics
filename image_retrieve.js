@@ -1,6 +1,8 @@
 var API_key = "AIzaSyBa-Awy-4I_WCifa1S875-u1DCF0zOqTcg";
+var link = null;
+var pos = null;
     
-get_portrait("trump");
+//get_portrait("trump");
 //get_headbox("http://assets.nydailynews.com/polopoly_fs/1.2553575.1457136358!/img/httpImage/image.jpg_gen/derivatives/article_750/conflead6f-3-web.jpg");
 
 //TODO a overall function to start random songs and image searches
@@ -20,17 +22,19 @@ function get_portrait(keyword){
             var index = Math.floor(Math.random() * 6);
             console.log(index);
             
-            var link = data.items[index].link;
+            link = data.items[index].link;
             var image = data.items[index].image;
 //            console.log(data)
 //            console.log(link + "\n" + image.width + " " + image.height)
-            get_headbox(link, image.width, image.height);
+            get_headbox(image.width, image.height);
         }
     });
 }
 
-function get_headbox(link, width, height){    
-     var request = {
+function get_headbox(width, height){    
+    console.log(link);
+    console.log("forming headbox request");
+    var request = {
       "requests":[
         {
           "image":{
@@ -47,7 +51,6 @@ function get_headbox(link, width, height){
         }
       ]
     };
-    console.log(link);
     $.ajax({
         url: "https://vision.googleapis.com/v1/images:annotate?key=" + API_key,
         type: "POST",
@@ -55,6 +58,12 @@ function get_headbox(link, width, height){
         data: JSON.stringify(request),
         processData: false,
         success: function (response) {
+            if(typeof response.responses == "undefined"){
+                console.log("no faces found here");
+                pos = {x: 0.5, y: 0.5}
+                update_display();
+                return;   
+            }
             var headbox = response.responses[0].faceAnnotations[0].boundingPoly.vertices;
             text_location(headbox, width, height);
         },
@@ -70,25 +79,35 @@ function text_location(avoid, width, height){
                                 avg_coord(avoid[2], avoid[3]));
     console.log(head_center);
     console.log(width + " " + height);
-    var text_center = {x: width-head_center.x, y: height-head_center.y};
+    var text_center = {x: (width-head_center.x) / width, y: (height-head_center.y) / height};
+    
+    //somehow y will be NAN sometimes
+    if(text_center.y == NaN){
+        console.log("y is NaN, set to middle");
+       text_center.y = 0.5;
+    }
+    
     console.log(text_center);
-    place_text(text_center);
+    pos = text_center;
+    
+    update_display();
 }
 
-function place_text(text_coord){
-    console.log("refrain: " + refrain);
-    random_song("Pop");
-    setTimeout(function(){
-        if(refrain != null){
-            console.log("refrain: " + refrain);
-            return;
-        }
-        console.log("waiting on refrain");
-    }, 300)
-    if(refrain == null){
-        console.error("something is terribly wrong her=");
-    }
-}
+//maybe make it also set a global variable
+//function place_text(text_coord){
+//    console.log("refrain: " + refrain);
+//    random_song("Pop");
+//    setTimeout(function(){
+//        if(refrain != null){
+//            console.log("refrain: " + refrain);
+//            return;
+//        }
+//        console.log("waiting on refrain");
+//    }, 300)
+//    if(refrain == null){
+//        console.error("something is terribly wrong her=");
+//    }
+//}
     
 
 
